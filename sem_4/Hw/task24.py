@@ -13,19 +13,32 @@
 # Input: 1 3 2 1 1 6
 # Output: 10
 
-# считываем урожайности кустов черники из входного файла
-berries = list(map(int, input().split()))
 
-# добавляем первый куст в конец списка, чтобы грядка была замкнутой
-berries.append(berries[0])
+n = int(input())
+arr = list()
+for i in range(n):
+    x = int(input())
+    arr.append(x)
 
-# находим максимальное количество ягод, которое можно собрать с каждого куста
-max_berries = 0
-for i in range(len(berries) - 1):
-    # считаем количество ягод, которые можно собрать с текущего куста
-    curr_berries = berries[i] + berries[i + 1] + berries[(i + 2) % len(berries)]
-    if curr_berries > max_berries:
-        max_berries = curr_berries
+arr_count = list()
+for i in range (len(arr)-1):
+    arr_count.append(arr[i-1]+arr[i]+arr[i+1])
+arr_count.append(arr[-2]+arr[-1]+arr[0])
+print(max(arr_count))
 
-# выводим максимальное количество ягод, которое можно собрать за один заход
-print(max_berries)
+# # считываем урожайности кустов черники из входного файла
+# berries = list(map(int, input().split()))
+
+# # добавляем первый куст в конец списка, чтобы грядка была замкнутой
+# berries.append(berries[0])
+
+# # находим максимальное количество ягод, которое можно собрать с каждого куста
+# max_berries = 0
+# for i in range(len(berries) - 1):
+#     # считаем количество ягод, которые можно собрать с текущего куста
+#     curr_berries = berries[i] + berries[i + 1] + berries[(i + 2) % len(berries)]
+#     if curr_berries > max_berries:
+#         max_berries = curr_berries
+
+# # выводим максимальное количество ягод, которое можно собрать за один заход
+# print(max_berries)
